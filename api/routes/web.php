@@ -17,6 +17,13 @@ $router->get('/', function () use ($router) {
 
 
 $router->get('/movies','MoviesController@all');
+$router->get('/movie/{id}','MoviesController@one');
+$router->get('/movie/{id}/ratings','MoviesController@movieRatings');
+
+$router->get('/user/{id}','UsersController@one');
+$router->get('/user/{id}/ratings','UsersController@userRatings');
+
+
 
 $router->post(
     'auth/login',

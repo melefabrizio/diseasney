@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Movie;
+use App\User;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller;
 
-class MoviesController extends Controller
+class UsersController extends Controller
 {
 
     /**
@@ -27,16 +27,16 @@ class MoviesController extends Controller
     }
 
     public function all(Request $request){
-        return response()->json(Movie::all());
+        return response()->json(User::all());
     }
 
-    public function one($movieId){
-        return response()->json(Movie::find($movieId));
+    public function one($userId){
+        return response()->json(User::find($userId));
     }
 
-    public function movieRatings($movieId){
+    public function userRatings($userId){
 
-        return response()->json(Movie::find($movieId)->ratings);
+        return response()->json(User::find($userId)->ratings);
 
     }
 }
