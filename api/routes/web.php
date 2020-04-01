@@ -16,9 +16,7 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->get('/cacca', function () use ($router) {
-    return "caccaaa";
-});
+$router->get('/movies','MoviesController@all');
 
 $router->post(
     'auth/login',
