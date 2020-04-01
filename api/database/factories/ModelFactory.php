@@ -23,3 +23,17 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => app('hash')->make('12345'),
     ];
 });
+
+$factory->define(\App\Rating::class, function (Faker $faker){
+   return [
+       'user_id' => $faker->numberBetween(1,10),
+       'movie_id' => $faker->numberBetween(1,79),
+       'overall' => $faker->randomFloat(1,0,9),
+       'score' => $faker->randomFloat(1,0,9),
+       'bad_guy' => $faker->randomFloat(1,0,9),
+       'story' => $faker->randomFloat(1,0,9),
+       'animation' => $faker->randomFloat(1,0,9),
+       'universe' => $faker->randomFloat(1,0,9),
+       'good_guy' => $faker->randomFloat(1,0,9),
+   ];
+});

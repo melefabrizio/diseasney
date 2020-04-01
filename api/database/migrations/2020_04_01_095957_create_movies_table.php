@@ -23,28 +23,7 @@ class CreateMoviesTable extends Migration
             $table->timestamps();
         });
 
-        $csvfile = base_path().'/app/disney.csv';
-        $header=true;
 
-        if (($handle = fopen ( $csvfile, 'r' )) !== FALSE) {
-            while ( ($data = fgetcsv ( $handle, 1000, ';' )) !== FALSE ) {
-                print_r($data);
-                if ( $header ) {
-                    $header = false;
-                }
-                else{
-                        $movie = array(
-                            'title' => $data[0],
-                            'original_title' => $data[1],
-                            'year' => $data[2],
-                            'animation' => $data[3]
-                        );
-                        DB::table('movies')->insert($movie);
-
-                }
-            }
-            fclose ( $handle );
-        }
 
     }
 
