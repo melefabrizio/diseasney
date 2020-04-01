@@ -1,39 +1,31 @@
-.idea/
-nbproject/
-composer.phar
-composer.lock
-.DS_STORE
-cache.properties
-.php_cs.cache
-.vscode
+/vendor
+.idea
+Homestead.json
+Homestead.yaml
+.env
 .phpunit.result.cache
 
-vendor/
-build/
+# Created by https://www.gitignore.io/api/laravel
+# Edit at https://www.gitignore.io/?templates=laravel
+
+### Laravel ###
+/vendor/
 node_modules/
+npm-debug.log
+yarn-error.log
 
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+storage/*.key
 .env
-public/.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
 
-env.php
-config/env.php
-
-#!public/assets/
-#public/assets/*
-#!public/assets/.htaccess
-
-!tmp/
-tmp/*
-!tmp/.htaccess
-
-!tmp/locale-cache/
-tmp/locale-cache/*
-!tmp/locale-cache/empty
-
-!tmp/twig-cache/
-tmp/twig-cache/*
-!tmp/twig-cache/empty
-
-!logs/
-logs/*
-!logs/.htaccess
+# End of https://www.gitignore.io/api/laravel
