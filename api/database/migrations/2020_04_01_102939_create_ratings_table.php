@@ -18,7 +18,13 @@ class CreateRatingsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('movie_id');
 
-            
+            $table->decimal('overall',3,1);
+            $table->decimal('score',3,1);
+            $table->decimal('animation',3,1);
+            $table->decimal('universe',3,1);
+            $table->decimal('story',3,1);
+            $table->decimal('bad_guy',3,1);
+            $table->decimal('good_guy',3,1);
 
             $table->timestamps();
         });
