@@ -17,11 +17,11 @@ $router->get('/', function () use ($router) {
 
 
 $router->get('/movies','MoviesController@all');
-$router->get('/movie/{id}','MoviesController@one');
-$router->get('/movie/{id}/ratings','MoviesController@movieRatings');
+$router->get('/movies/{id}','MoviesController@one');
+$router->get('/movies/{id}/ratings','MoviesController@movieRatings');
 
-$router->get('/user/{id}','UsersController@one');
-$router->get('/user/{id}/ratings','UsersController@userRatings');
+$router->get('/users/{id}','UsersController@one');
+$router->get('/users/{id}/ratings','UsersController@userRatings');
 
 
 
@@ -32,9 +32,14 @@ $router->post(
     ]
 );
 
+$router->post('/auth/register','AuthController@register');
+
 $router->group(
     ['middleware' => 'jwt.auth'],
     function() use ($router) {
+
+        $router->post('/movies/{id}/ratings','MoviesController@storeRating');
+
         $router->get('users', function() {
             $users = \App\User::all();
             return response()->json($users);

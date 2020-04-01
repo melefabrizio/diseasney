@@ -56,6 +56,7 @@ class AuthController extends BaseController
      */
     public function authenticate(User $user) {
         $this->validate($this->request, [
+            'name'      => 'required',
             'email'     => 'required|email',
             'password'  => 'required'
         ]);
@@ -84,5 +85,26 @@ class AuthController extends BaseController
         return response()->json([
             'error' => 'Email or password is wrong.'
         ], 400);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
+        ]);
+
+        $hasher = app()->make('hash');
+        $email = $request->input('email');
+        $password = $hasher->make($request->input('password'));
+        $user = User::create([
+            'email' => $email,
+            'password' => $password,
+        ]);
+
+        $res['success'] = true;
+        $res['message'] = 'User registered';
+        $res['data'] = $user;
+        return response($res, 201);
     }
 }

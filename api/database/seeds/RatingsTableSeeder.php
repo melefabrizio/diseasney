@@ -11,6 +11,6 @@ class RatingsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Rating::class, 200)->create();
+        factory(App\Rating::class, 400)->create();
     }
 }

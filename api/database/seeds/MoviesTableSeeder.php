@@ -17,7 +17,6 @@ class MoviesTableSeeder extends Seeder
 
         if (($handle = fopen ( $csvfile, 'r' )) !== FALSE) {
             while ( ($data = fgetcsv ( $handle, 1000, ';' )) !== FALSE ) {
-                print_r($data);
                 if ( $header ) {
                     $header = false;
                 }

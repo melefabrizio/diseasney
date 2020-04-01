@@ -25,9 +25,16 @@ $factory->define(User::class, function (Faker $faker) {
 });
 
 $factory->define(\App\Rating::class, function (Faker $faker){
+
+    $user = User::inRandomOrder()->first();
+    $user instanceof User ? $userId = $user->id : $userId = null;
+
+    $userIdAndMovie = $faker->unique()->regexify("/$userId-[1-7]?[0-9]");
+    $movieId = explode("-",$userIdAndMovie)[1];
+
    return [
-       'user_id' => $faker->numberBetween(1,10),
-       'movie_id' => $faker->numberBetween(1,79),
+       'user_id' => $userId,
+       'movie_id' => $movieId,
        'overall' => $faker->randomFloat(1,0,9),
        'score' => $faker->randomFloat(1,0,9),
        'bad_guy' => $faker->randomFloat(1,0,9),
